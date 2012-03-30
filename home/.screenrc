@@ -1,0 +1,14 @@
+startup_message off
+defscrollback 3000
+shelltitle '@|'
+screen emacs -nw
+hardstatus alwayslastline '%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<'
+bindkey -d ^J command
+bind "\011" windows
+escape ^Jj
+defescape ^Jj
+bind o focus
+bind , prev
+bind . next
+bind k remove
+

@@ -1,0 +1,16 @@
+= dotfiles =
+== Installation ==
+Using [[http://rubygems.org/gems/homesick|homesick]] to manage this repo:
+
+{{{
+gem install homesick
+homesick clone git://github.com/dougm/dotfiles.git
+homesick pull dotfiles && homesick symlink dotfiles
+}}}
+
+To update:
+
+{{{
+homesick pull dotfiles && homesick symlink dotfiles
+}}}
+

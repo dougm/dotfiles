@@ -1,0 +1,39 @@
+[user]
+	name = Doug MacEachern
+	email = dougm@vmware.com
+[color]
+	diff = auto
+	branch = auto
+	interactive = auto
+	status = auto
+[core]
+	excludesfile = ~/.gitignore
+	whitespace = trailing-space,space-before-tab
+[apply]
+	whitespace = fix
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+        mr = merge --no-ff
+	fuckthis = checkout -f
+[branch]
+	autosetupmerge = true
+[color "sh"]
+	branch = yellow reverse
+	workdir = blue bold
+	dirty = red
+[merge]
+	renameLimit = 999999
+	tool = ediff
+[mergetool]
+	prompt = false
+[mergetool.ediff]
+	cmd = emacs --eval \" \
+(progn \
+  (setq ediff-quit-hook 'kill-emacs) \
+  (if (file-readable-p \\\"$BASE\\\") \
+      (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \
+                                       \\\"$BASE\\\" nil \\\"$MERGED\\\") \
+      (ediff-merge-files \\\"$LOCAL\\\" \\\"$REMOTE\\\" nil \\\"$MERGED\\\")))\"
