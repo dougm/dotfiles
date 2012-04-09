@@ -9,6 +9,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	whitespace = trailing-space,space-before-tab
+	editor = mg
 [apply]
 	whitespace = fix
 [alias]
