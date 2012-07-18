@@ -18,7 +18,8 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=5000
 HISTFILESIZE=5000
 
-PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export GOPATH=$HOME/gocode
+PATH=$HOME/bin:$GOPATH/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # Terminal colours (after installing GNU coreutils)
 NM="\[\033[0;38m\]" #means no background and white lines
