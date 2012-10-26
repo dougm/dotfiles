@@ -2,10 +2,16 @@
 	name = Doug MacEachern
 	email = dougm@vmware.com
 [color]
-	diff = auto
-	branch = auto
+	grep = auto
+	ui = auto
 	interactive = auto
+	branch = auto
+	diff = auto
 	status = auto
+[color "sh"]
+	branch = yellow reverse
+	workdir = blue bold
+	dirty = red
 [core]
 	excludesfile = ~/.gitignore
 	whitespace = trailing-space,space-before-tab
@@ -19,12 +25,17 @@
 	br = branch
         mr = merge --no-ff
 	fuckthis = checkout -f
+        graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)(%an)%Creset' --abbrev-commit --date=relative
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+        log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+        changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+        short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+        changelog = log --pretty=format:\" * %s\"
+        shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+        incoming = !git fetch && git log ..origin/master
+        outgoing = !git fetch && git log origin/master..
 [branch]
 	autosetupmerge = true
-[color "sh"]
-	branch = yellow reverse
-	workdir = blue bold
-	dirty = red
 [merge]
 	renameLimit = 999999
 	tool = ediff
