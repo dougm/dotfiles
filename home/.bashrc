@@ -14,6 +14,15 @@ rvm_version() {
   [ "$full" != "" ] && echo "$full "
 }
 
+tmux_cmd="tmux -2"
+tmux_cfg="$HOME/.tmux.$(uname).conf"
+
+if [ -f $tmux_cfg ]; then
+    tmux_cmd="${tmux_cmd} -f ${tmux_cfg}"
+fi
+
+alias tmux="${tmux_cmd}"
+
 HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=5000
 HISTFILESIZE=5000
