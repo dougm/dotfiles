@@ -48,5 +48,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if which rbenv >/dev/null; then
+    PATH="$HOME/.rbenv/shims:$PATH"
+    eval "$(rbenv init -)"
+fi
