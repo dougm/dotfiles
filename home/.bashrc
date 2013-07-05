@@ -1,9 +1,10 @@
 test -r /etc/bashrc &&
       . /etc/bashrc
 
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' 
-} 
+git_branch() {
+    branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    test -n "$branch" && echo "($branch)"
+}
 
 tmux_cmd="tmux -2"
 tmux_cfg="$HOME/.tmux.$(uname).conf"
@@ -28,7 +29,7 @@ HII="\[\033[0;31m\]" #change this for letter colors
 SI="\[\033[0;33m\]" #this is for the current directory
 IN="\[\033[0m\]"
 
-PS1="$NM\h:$SI\w$HII\$(parse_git_branch)$IN% "
+PS1="$NM\h:$SI\w$HII\$(git_branch)$IN% "
 
 dircolors="$(type -P gdircolors dircolors | head -1)"
 test -n "$dircolors" && {
@@ -48,7 +49,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-if which rbenv >/dev/null; then
+if which rbenv >& /dev/null; then
     PATH="$HOME/.rbenv/shims:$PATH"
     eval "$(rbenv init -)"
 fi
