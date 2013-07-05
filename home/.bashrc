@@ -43,7 +43,7 @@ alias ls="$ls \$LS_OPTIONS -hF"
 alias ll="$ls \$LS_OPTIONS -lhF"
 alias l="$ls \$LS_OPTIONS -lAhF"
 alias grep='grep --color'
-alias ec='emacsclient -t'
+alias ec='emacsclient -n'
 
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
