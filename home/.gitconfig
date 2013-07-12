@@ -34,6 +34,7 @@
         shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
         incoming = !git fetch && git log ..origin/master
         outgoing = !git fetch && git log origin/master..
+        chead = !git fetch && git checkout origin/master
 [branch]
 	autosetupmerge = true
 [merge]
