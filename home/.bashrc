@@ -20,7 +20,8 @@ HISTSIZE=5000
 HISTFILESIZE=5000
 
 export GOPATH=$HOME/gocode
-PATH=$HOME/bin:$GOPATH/bin:/usr/local/bin:/usr/local/sbin:$PATH
+PATH=$HOME/bin:$GOPATH/bin:$PATH
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
 
 # Terminal colours (after installing GNU coreutils)
 NM="\[\033[0;38m\]" #means no background and white lines
