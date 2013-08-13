@@ -51,6 +51,16 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 if which rbenv >& /dev/null; then
-    PATH="$HOME/.rbenv/shims:$PATH"
     eval "$(rbenv init -)"
+fi
+
+brew=/usr/local/bin/brew
+if [ -x $brew ]
+then
+  # coreutils (homebrew on OSX)
+  gnubin=$($brew --prefix coreutils)/libexec/gnubin
+  if [ -d $gnubin ]
+  then
+    export PATH=$gnubin:$PATH
+  fi
 fi
