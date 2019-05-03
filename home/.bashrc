@@ -19,8 +19,8 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=5000
 HISTFILESIZE=5000
 
-export GOPATH=$HOME/gocode
-PATH=$HOME/bin:$GOPATH/bin:$PATH
+export GOPATH=$HOME
+PATH=$HOME/bin:$PATH
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
 
 # Terminal colours (after installing GNU coreutils)
@@ -64,3 +64,9 @@ then
     export PATH=$gnubin:$PATH
   fi
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then source "$HOME/google-cloud-sdk/path.bash.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/google-cloud-sdk/completion.bash.inc"; fi

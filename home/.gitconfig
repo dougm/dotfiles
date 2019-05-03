@@ -14,10 +14,8 @@
 	dirty = red
 [core]
 	excludesfile = ~/.gitignore
-	whitespace = trailing-space,space-before-tab
 	editor = mg
-[apply]
-	whitespace = fix
+
 [alias]
 	st = status
 	ci = commit
@@ -50,3 +48,5 @@
       (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \
                                        \\\"$BASE\\\" nil \\\"$MERGED\\\") \
       (ediff-merge-files \\\"$LOCAL\\\" \\\"$REMOTE\\\" nil \\\"$MERGED\\\")))\"
+[github]
+	user = dougm
